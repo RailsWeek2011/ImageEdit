@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ImageEdit</title>
+  <%= stylesheet_link_tag 'style' %>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<center>
+    <div align="center" class="banner">
+        <div align="center" class="banner_inline">
+	    <% if user_signed_in? %>
+		<%= link_to "#{current_user.username} logout", destroy_user_session_path, :method => :delete %>
+	    <% end %>
+        </div>
+    </div>
+    <div align="center" class="login">
+	<% if user_signed_in? %>
+         <%= link_to image_tag("upload_a.jpg", :mouseover => "upload_b.jpg" , :border => 0), new_user_registration_path %>
+         <%= link_to image_tag("galerie_a.jpg", :mouseover => "galerie_b.jpg" , :border => 0), new_user_registration_path %>
+     	<% else %>
+	 <!--   <%= link_to "registrieren", new_user_registration_path %> --> 
+         <%= link_to image_tag("register_a.jpg", :mouseover => "register_b.jpg" , :border => 0), new_user_registration_path %>
+         <%= link_to image_tag("login_a.jpg", :mouseover => "login_b.jpg", :border => 0), new_user_session_path %>
+	<% end %>
+    </div>
+    <div align="center" class="content">
+        <%= yield %>
+    </div>
+    <div align="center" class="footer">
+    </div>
+</center>
+</body>
+</html>

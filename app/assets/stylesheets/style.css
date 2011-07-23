@@ -1,0 +1,42 @@
+
+.banner
+{
+    width: 800px;
+    height: 150px;
+    background-image:url('banner.jpg');
+}
+.banner_inline
+{
+padding:20px;
+text-align:right;
+    width: 750px;
+    height: 50px;
+}
+
+.login
+{
+    margin:4px;
+    text-align:center;
+    width: 800px;
+    height: 30px;
+    #background-image:url('content.jpg');
+}
+
+.content
+{
+    width: 800px;
+    min-height:10px;
+    height: 100%;
+    #background-image:url('content.jpg');
+
+}
+
+.footer
+{
+    width: 800px;
+    height: 60px;
+    color:#293484;
+    background-image:url('footer.jpg');
+
+}
+
