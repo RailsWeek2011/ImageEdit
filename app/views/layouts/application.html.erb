@@ -18,9 +18,13 @@
     </div>
     <div align="center" class="login">
 	<% if user_signed_in? %>
-         <%= link_to image_tag("upload_a.jpg", :mouseover => "upload_b.jpg" , :border => 0), new_user_registration_path %>
-         <%= link_to image_tag("galerie_a.jpg", :mouseover => "galerie_b.jpg" , :border => 0), new_user_registration_path %>
+         	<%= link_to image_tag("upload_a.jpg", :mouseover => "upload_b.jpg" , :border => 0), new_user_registration_path %>
+         	<%= link_to image_tag("galerie_a.jpg", :mouseover => "galerie_b.jpg" , :border => 0), new_user_registration_path %>
+     		<% if current_user.admin %>
+     			<%= link_to "User verwaltung", "/../Verwaltung/all" %>
+     		<% end %>
      	<% else %>
+     	
 	 <!--   <%= link_to "registrieren", new_user_registration_path %> --> 
          <%= link_to image_tag("register_a.jpg", :mouseover => "register_b.jpg" , :border => 0), new_user_registration_path %>
          <%= link_to image_tag("login_a.jpg", :mouseover => "login_b.jpg", :border => 0), new_user_session_path %>

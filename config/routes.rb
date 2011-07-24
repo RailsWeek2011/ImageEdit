@@ -1,6 +1,6 @@
 ImageEdit::Application.routes.draw do
   get "home/index"
-
+  get "Verwaltung/all"
   devise_for :users #, :path_names => { :sign_up => "Registrierung"}
 root :to => "home#index"
   # The priority is based upon order of creation:
