@@ -1,0 +1,13 @@
+<head>
+<title>Administration</title>
+</head>
+<body>
+
+<h3>Administration über die user</h3>
+
+
+	<% @users.each do |user| %>
+  		<%= user.username %> <%= link_to "löschen" ,"destroy/#{user.id}", :confirm => "Sind sie sich sicher?"%></br>
+  	<% end %>
+</body>
+</html>
