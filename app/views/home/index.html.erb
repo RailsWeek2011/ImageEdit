@@ -1,9 +1,12 @@
-
-
-	    <% if user_signed_in? %>
-cock	    <% else %>
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
-	    <% end %>
+<% if user_signed_in? %>
+<br/>
+Willkommen <%= current_user.username %>!
+<br/>
+<br/>
+<br/>
+<% else %>
+<p>Auf dieser Seite können Sie Bilder hochladen und diese in <br/> 
+   in verschiedene Formate/größen umrechnen lassen</p>
+<% end %>
 
 
