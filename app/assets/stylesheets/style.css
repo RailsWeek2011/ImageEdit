@@ -24,6 +24,7 @@ text-align:right;
 
 .content
 {
+    margin:4px;
     width: 800px;
     min-height:10px;
     height: 100%;

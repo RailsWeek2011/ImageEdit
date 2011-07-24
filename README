@@ -1,4 +1,8 @@
+
 #########ImageEdit#########
+
+
+
 Projekt by
 -Jens Göckus
 -Rudolf Zimmermann<InfernoIWB(at)gmx.de>
@@ -20,8 +24,9 @@ Features
 	+ and there will be the possibility to save those pictures for 		  a period of time
 	+ interface to see witch part will be cut
 	+ have them sorted in a gallerie
-	
-- 
+
+
+
 
 
                            /  \
@@ -54,3 +59,6 @@ Features
             |                |
             |                |
             |                |
+
+
+
