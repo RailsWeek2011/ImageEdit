@@ -1,0 +1,64 @@
+<<<<<<< HEAD
+#########ImageEdit#########
+=======
+########ImageEdit#########
+>>>>>>> 0feecd49af3db1c45176b3535f30d43d4d53ae18
+Projekt by
+-Jens Göckus
+-Rudolf Zimmermann<InfernoIWB(at)gmx.de>
+
+Description: ImageEdit
+
+ImageEdit is the next generation online tool for resizing your pictures
+and storing them online
+
+Features
+
+- Login with roles
+	+ There will be an administrator and a user
+	+ A administrator will have the right to delete pictures
+	  and to delete whole user
+	+ A user has the option to upload Pictures
+- Possibility to upload pictures
+	+ these pictures can be resized or formated to the format of 	 	  their choice
+	+ and there will be the possibility to save those pictures for 		  a period of time
+	+ interface to see witch part will be cut
+	+ have them sorted in a gallerie
+<<<<<<< HEAD
+	
+- 
+
+
+                           /  \
+                          |    |
+            _             |    |
+          /' |            | _  |
+         |   |            |    |
+         | _ |            |    |
+         |   |            |    |
+         |   |        __  | _  |
+         | _ |  __   /  \ |    |
+         |   | /  \ |    ||    |
+         |   ||    ||    ||    |       _---.
+         |   ||    ||    |. __ |     ./     |
+         | _. | -- || -- |    `|    /      //
+         |'   |    ||    |     |   /`     (/
+         |    |    ||    |     | ./       /
+         |    |.--.||.--.|  __ |/       .|
+         |  __|    ||    |-'            /
+         |-'   \__/  \__/             .|
+         |       _.-'                 /
+         |   _.-'      /             |
+         |            /             /
+         |           |             /
+         `           |            /
+          \          |          /'
+           |          `        /
+            \                .'
+            |                |
+            |                |
+            |                |
+            |                |
+=======
+
+>>>>>>> 0feecd49af3db1c45176b3535f30d43d4d53ae18
