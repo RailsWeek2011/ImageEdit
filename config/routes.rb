@@ -1,10 +1,13 @@
 ImageEdit::Application.routes.draw do
 
   get "home/index"
+  put "user/update/:id" => "user#update"
+  post"user/edit/:id" => "user#update"
+  get "user/edit/:id" => "user#edit"
   get "user/all" => "user#all"
   get "user/destroy/:id" => "user#destroy"
-  devise_for :users #, :path_names => { :sign_up => "Registrierung"}
-root :to => "home#index"
+  devise_for :users, :user
+  root :to => "home#index"
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

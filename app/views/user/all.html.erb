@@ -3,11 +3,11 @@
 </head>
 <body>
 
-<h3>Administration über die user</h3>
+<h4>Administration über die user</h4>
 
 
 	<% @users.each do |user| %>
-  		<%= user.username %> <%= link_to "löschen" ,"destroy/#{user.id}", :confirm => "Sind sie sich sicher?"%></br>
+  		<%= user.username %> <%= link_to "bearbeiten" ,"edit/#{user.id}"%></br>
   	<% end %>
 </body>
 </html>

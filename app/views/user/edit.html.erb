@@ -1,0 +1,39 @@
+<head>
+<title>Bearbeiten</title>
+</head>
+<body>
+
+<h4>Bearbeiten von <%= @user.username%></h4>
+
+
+<%= link_to "löschen" ,"destroy/#{@user.id}", :confirm => "Sind sie sich sicher?" %></br>
+
+
+<%= form_for :user do |f| %>
+  <%= f.label :Benutzername %><br />
+      <%= f.text_field :username , :value => @user.username %>
+  </p>
+
+  <p>
+      <%= f.label :password %>
+      <br />
+      <%= f.password_field :password %>
+  </p>
+  <p>
+      <%= f.label :password%>
+      <br />
+      <%= f.password_field :password_confirmation%>
+  </p>
+  
+  <p>
+      <%= f.label :email %>
+      <br />
+      <%= f.email_field :email, :value=>@user.email %>
+  </p>
+
+    <%= f.submit "bearbeiten" %>
+  </div>
+<% end %>
+  	
+</body>
+</html>
