@@ -6,16 +6,16 @@
 <h4>Administration über die user</h4>
     <table width="200" border="0">
 	<% @users.each do |user| %>
-
-
-
-
-
+<<<<<<< HEAD
+  		<%= user.username %> 
+  		<%= link_to "bearbeiten" ,"edit/#{user.id}"%>
+  		</br>
+=======
         <tr> 
             <td><%= user.username %> </td>
       	    <td><%= link_to image_tag("edit_a.jpg", :mouseover => "edit_b.jpg" , :border => 0),  "edit/#{user.id}" %></td>
         </tr>
-
+>>>>>>> 1889d7acef5172d92bff7a799250e9e9ce7f4f88
   	<% end %>
     </table>
 </body>

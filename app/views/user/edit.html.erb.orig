@@ -5,14 +5,14 @@
 
 <h4>Bearbeiten von <%= @user.username%></h4>
 
-
-
-
-
+<<<<<<< HEAD
+<%= link_to "löschen" ,"../destroy/#{@user.id}", :confirm => "Sind sie sich sicher?" %></br>
+</br>
+=======
 
 <p><%= link_to "löschen" ,"destroy/#{@user.id}", :confirm => "Sind sie sich sicher?" %>
 </p>
-
+>>>>>>> 1889d7acef5172d92bff7a799250e9e9ce7f4f88
 
 <%= form_for :user do |f| %>
 
@@ -42,12 +42,12 @@
       	<%= f.label "Administrator" %> <%= f.check_box :admin %>
       <% end %>
   </p>
-
-
-
+<<<<<<< HEAD
+    <%= f.submit "bearbeiten" %>
+=======
   <%= image_submit_tag "senden_a.jpg", :mouseover => "senden_b.jpg"%>
    <!-- <%= f.submit "bearbeiten" %> -->
-
+>>>>>>> 1889d7acef5172d92bff7a799250e9e9ce7f4f88
   </div>
 <% end %>
   	

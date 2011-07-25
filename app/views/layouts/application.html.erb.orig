@@ -21,13 +21,14 @@
          	<%= link_to image_tag("upload_a.jpg", :mouseover => "upload_b.jpg" , :border => 0), new_user_registration_path %>
          	<%= link_to image_tag("galerie_a.jpg", :mouseover => "galerie_b.jpg" , :border => 0), new_user_registration_path %>
      		<% if current_user.admin %>
-
-
-
-				<%= link_to "Profil", "/../user/edit/#{current_user.id}" 
+<<<<<<< HEAD
+     			<%= link_to "Administration", "/../user/all" %>
+     		<% else %>
+				<%= link_to "Profil", "/../user/edit/#{current_user.id}" %>
+=======
          	<%= link_to image_tag("admin_a.jpg", :mouseover => "admin_b.jpg" , :border => 0),  "/../user/all" %>
 
-
+>>>>>>> 1889d7acef5172d92bff7a799250e9e9ce7f4f88
      		<% end %>
      	<% else %>
      	
