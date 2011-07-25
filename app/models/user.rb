@@ -19,4 +19,13 @@ class User < ActiveRecord::Base
 		self.save
 		return true
 	end
+	def make_user
+		self.admin = false
+		self.save
+		return true
+	end
+
+  	validates_presence_of :username,
+  		:message => "ein Name muss vorhanden sein"
+
 end

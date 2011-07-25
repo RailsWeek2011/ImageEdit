@@ -7,7 +7,9 @@
 
 
 	<% @users.each do |user| %>
-  		<%= user.username %> <%= link_to "bearbeiten" ,"edit/#{user.id}"%></br>
+  		<%= user.username %> 
+  		<%= link_to "bearbeiten" ,"edit/#{user.id}"%>
+  		</br>
   	<% end %>
 </body>
 </html>

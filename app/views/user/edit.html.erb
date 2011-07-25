@@ -5,11 +5,11 @@
 
 <h4>Bearbeiten von <%= @user.username%></h4>
 
-
-<%= link_to "löschen" ,"destroy/#{@user.id}", :confirm => "Sind sie sich sicher?" %></br>
-
+<%= link_to "löschen" ,"../destroy/#{@user.id}", :confirm => "Sind sie sich sicher?" %></br>
+</br>
 
 <%= form_for :user do |f| %>
+
   <%= f.label :Benutzername %><br />
       <%= f.text_field :username , :value => @user.username %>
   </p>
@@ -26,11 +26,16 @@
   </p>
   
   <p>
-      <%= f.label :email %>
-      <br />
-      <%= f.email_field :email, :value=>@user.email %>
+     	<%= f.label :email %>
+      	<br />
+      	<%= f.email_field :email, :value=>@user.email %>
   </p>
-
+  
+  <p>
+      <% if  @user.admin%>
+      	<%= f.label "Administrator" %> <%= f.check_box :admin %>
+      <% end %>
+  </p>
     <%= f.submit "bearbeiten" %>
   </div>
 <% end %>

@@ -5,7 +5,6 @@ class UserController < ApplicationController
   def update
   	@user = User.find(params[:id])
      	if @user.update_attributes(params[:user])
-  		# success
   		redirect_to :action => 'all'
   	else
   		redirect_to :action => 'edit'
@@ -23,8 +22,4 @@ class UserController < ApplicationController
 	 redirect_to :action => 'all'
   end
 
-end#
-#
-#
-#
-
+end
