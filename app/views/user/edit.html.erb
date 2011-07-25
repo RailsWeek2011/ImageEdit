@@ -6,8 +6,8 @@
 <h4>Bearbeiten von <%= @user.username%></h4>
 
 
-<%= link_to "löschen" ,"destroy/#{@user.id}", :confirm => "Sind sie sich sicher?" %></br>
-
+<p><%= link_to "löschen" ,"destroy/#{@user.id}", :confirm => "Sind sie sich sicher?" %>
+</p>
 
 <%= form_for :user do |f| %>
   <%= f.label :Benutzername %><br />
@@ -30,8 +30,8 @@
       <br />
       <%= f.email_field :email, :value=>@user.email %>
   </p>
-
-    <%= f.submit "bearbeiten" %>
+  <%= image_submit_tag "senden_a.jpg", :mouseover => "senden_b.jpg"%>
+   <!-- <%= f.submit "bearbeiten" %> -->
   </div>
 <% end %>
   	
