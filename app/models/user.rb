@@ -1,7 +1,6 @@
 class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
  after_initialize :default_values
- has_many :paintings
+ has_many :paintings, :dependent => :destroy
 
  
     def default_values

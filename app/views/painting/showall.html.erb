@@ -1,0 +1,13 @@
+<div>
+  <% for painting in @paintings %>
+	<%= image_tag painting.image_url.to_s %>
+	<div>
+	<%= image_tag painting.image_url(:thumb) if painting.image? %>
+     <%= painting.name %>
+        <%= link_to "edit", edit_painting_path(painting) %> |
+        <%= link_to "remove", painting, :confirm => 'Sind sie sich sicher?', :method => :delete %>
+	</div>
+  <% end %>
+  <div class="clear"></div>
+</div>
+

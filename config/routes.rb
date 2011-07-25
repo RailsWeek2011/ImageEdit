@@ -1,5 +1,8 @@
 ImageEdit::Application.routes.draw do
 
+  get "painting/showall/:id" => "painting#showall"
+  put "painting/upload/:id" => "painting#create"
+  get "painting/upload/:id" => "painting#upload"
   get "home/index"
   put "user/update/:id" => "user#update"
   post"user/edit/:id" => "user#update"
