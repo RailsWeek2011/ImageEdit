@@ -18,12 +18,13 @@
     </div>
     <div align="center" class="login">
 	<% if user_signed_in? %>
-         	<%= link_to image_tag("upload_a.jpg", :mouseover => "upload_b.jpg" , :border => 0), "/../painting/upload/#{current_user.id}" %>
-         	<%= link_to image_tag("galerie_a.jpg", :mouseover => "galerie_b.jpg" , :border => 0), "/../user/galerie/#{current_user.id}" %>
-     		<% if current_user.admin %>
-				<%= link_to image_tag("admin_a.jpg", :mouseover => "admin_b.jpg" , :border => 0),  "/../user/all" %>
+         	<%= link_to image_tag("upload_a.jpg", :mouseover => "upload_b.jpg" , :border => 0), "/../paintings/upload/#{current_user.id}" %>
+         	<% if current_user.admin %>
+				<%= link_to image_tag("galerie_a.jpg", :mouseover => "galerie_b.jpg" , :border => 0), "/../users/paintings" %>
+     			<%= link_to image_tag("admin_a.jpg", :mouseover => "admin_b.jpg" , :border => 0),  "/../users/all" %>
      		<% else %>
-				<%= link_to image_tag("edit_a.jpg", :mouseover => "edit_b.jpg" , :border => 0),  "/../user/edit/#{current_user.id}" %>
+				<%= link_to image_tag("galerie_a.jpg", :mouseover => "galerie_b.jpg" , :border => 0), "/../paintings/showall/#{current_user.id}" %>
+     			<%= link_to image_tag("edit_a.jpg", :mouseover => "edit_b.jpg" , :border => 0),  "/../users/edit/#{current_user.id}" %>
 	 		<% end %>
      	<% else %>
      	

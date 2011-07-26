@@ -1,0 +1,22 @@
+<head>
+<title>Administration</title>
+</head>
+<body>
+
+<h4>Administration über die user</h4>
+    <table width="200" border="0">
+	<% @users.each do |user| %>
+
+
+
+
+
+        <tr> 
+            <td><%= user.username %> </td>
+      	    <td><%= link_to image_tag("edit_a.jpg", :mouseover => "edit_b.jpg" , :border => 0),  "edit/#{user.id}" %></td>
+        </tr>
+
+  	<% end %>
+    </table>
+</body>
+</html>

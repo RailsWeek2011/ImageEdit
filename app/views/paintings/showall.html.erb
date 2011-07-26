@@ -1,0 +1,13 @@
+<div>
+  <% @paintings.each do |painting| %>
+	<div>
+		<%= image_tag painting.image_url(:thumb) if painting.image? %> <br />
+		<%= painting.name %><br />
+        <%= link_to "Download", "../download/#{painting.id}" %> | 
+        <%= link_to "Edit", "../edit/#{painting.id}" %> |
+        <%= link_to "Remove", "../delete/#{params[:id]}/#{painting.id}", :method => :delete %>
+	</div>
+  <% end %>
+  <div class="clear"></div>
+</div>
+

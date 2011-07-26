@@ -1,14 +1,19 @@
 ImageEdit::Application.routes.draw do
 
-  get "painting/showall/:id" => "painting#showall"
-  put "painting/upload/:id" => "painting#create"
-  get "painting/upload/:id" => "painting#upload"
+  delete "paintings/delete/:id/:pid" => "paintings#delete"
+  post "paintings/edit/:id" => "paintings#format" 
+  get "paintings/download/:id" => "paintings#download"
+  get "paintings/showall/:id" => "paintings#showall"
+  get "paintings/edit/:id" => "paintings#edit"
+  get "users/paintings" => "users#paintings"
+  put "paintings/upload/:id" => "paintings#create"
+  get "paintings/upload/:id" => "paintings#upload"
   get "home/index"
-  put "user/update/:id" => "user#update"
-  post"user/edit/:id" => "user#update"
-  get "user/edit/:id" => "user#edit"
-  get "user/all" => "user#all"
-  get "user/destroy/:id" => "user#destroy"
+  put "users/update/:id" => "users#update"
+  post"users/edit/:id" => "users#update"
+  get "users/edit/:id" => "users#edit"
+  get "users/all" => "users#all"
+  get "users/destroy/:id" => "users#destroy"
   devise_for :users, :user
   root :to => "home#index"
   
