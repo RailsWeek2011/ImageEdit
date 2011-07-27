@@ -1,13 +1,20 @@
+
+<p>Aktuelle Größe: 
+
+<%= 
+tmp =Painting.find(params[:id])
+tmp.width 
+xxx = "#{tmp.image.to_s.split('.').first}"
+xxx = "#{xxx.split('/').last}"
+#{xxx}
+%>x<%= tmp.height %></p>
 <%= form_for :painting do |f|%>
 	<p>
-
 		<%= f.label "Name" %>
 		<br />
 		<%= f.number_field :name %>
 	</p>
 	<p>
-
-
 		<%= f.label "Breite in Pixeln" %>
 		<br />
 		<%= f.number_field :width %>
@@ -20,12 +27,8 @@
 	<p>
 		<%= f.label "Format"%>
 		<br />
-
-
-
 		<%= f.select :format, [['jpg','JPG'],['png','PNG'],['gif','GIF']] %>
-
+		<%= f.select :effekt, [['none','none'],['Vignette','vignette'],['Edge','edge'],['Polaroid','polaroid'],['Emboss','emboss'],['Implode','implode'],['Negativ','negate'],['Öl Gemälde','oil'],['Spread','spread'],['Welle','wave']] %>
 	</p>
 	<%= image_submit_tag "senden_a.jpg", :mouseover => "senden_b.jpg" %>
-  
 <% end %>

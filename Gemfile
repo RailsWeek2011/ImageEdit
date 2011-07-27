@@ -14,7 +14,7 @@ gem 'uglifier'
 gem 'jquery-rails'
 gem 'devise', '1.4.2'
 gem 'carrierwave'
-gem 'rmagick'
+gem 'rmagick', :require => 'RMagick'
 # Use unicorn as the web server
 # gem 'unicorn'
 
