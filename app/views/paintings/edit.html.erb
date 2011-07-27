@@ -1,0 +1,24 @@
+<%= form_for :painting do |f|%>
+	<p>
+		<%= f.label "Name" %>
+		<br />
+		<%= f.number_field :name %>
+	</p>
+	<p>
+		<%= f.label "Breite in Pixeln" %>
+		<br />
+		<%= f.number_field :width %>
+	</p>
+	<p>
+		<%= f.label "Höhe in Pixeln" %>
+		<br />
+		<%= f.number_field :height%>
+	</p>
+	<p>
+		<%= f.label "Format"%>
+		<br />
+		<%= f.select :format, [['jpg','JPG'],['png','PNG'],['gif','GIF']] %>
+	</p>
+	<%= image_submit_tag "senden_a.jpg", :mouseover => "senden_b.jpg" %>
+  
+<% end %>
