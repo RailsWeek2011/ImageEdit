@@ -1,0 +1,15 @@
+class Painting < ActiveRecord::Base
+<<<<<<< HEAD
+attr_accessible :name , :image,:painting,:paintings, :width, :height, :format
+
+
+belongs_to :user
+=======
+attr_accessible :name , :image,:painting,:paintings,:width,:height
+	
+belongs_to :user #, :foreign_key => "user_id"
+>>>>>>> abc234ce8185bb40ccd858adb46557f14e23688b
+mount_uploader :image, ImageUploader
+
+
+end

@@ -12,33 +12,53 @@ class PaintingsController < ApplicationController
 		@painting = Painting.find(params[:id])
 	end
 	def format
+<<<<<<< HEAD
+		#p=Painting.find(params[:id])
+		#p.update_attributes(params[:painting])
+		#p.image = p.image.resize_to_fill(p.width.to_i,p.height.to_i)
+			# p.image.write("#{p.format}:myimage.gif")
+		#p.remove_image
+		#p.save
+		#redirect_to :action => 'showall', :id => current_user
+=======
 		p=Painting.find(params[:id])
 		p.update_attributes(params[:painting])
-		p.image = p.image.resize_to_fill(p.width.to_i,p.height.to_i)
-		#tmp=  Magick::Image.read(p.image.to_s).first
-		#tmp.write("#{p.format}:#{p.image.to_s}")
-		#p.image=tmp
+		tmp=p.image
 		p.remove_image
+		tmp.resize_to_fit(p.width,p.height)
+		#tmp.format(:format)
+		p.image=tmp
 		p.save
-		redirect_to :action => 'showall', :id => current_user
+		redirect_to :action => 'showall'
+>>>>>>> abc234ce8185bb40ccd858adb46557f14e23688b
 	end
 	def create
 		@painting=Painting.new params[:painting]
         @painting.user = current_user
 		if @painting.save 
+<<<<<<< HEAD
+			redirect_to 'showall', :id=>current_user
+=======
 			redirect_to :action => 'showall'
+>>>>>>> abc234ce8185bb40ccd858adb46557f14e23688b
 		else
 			render :action => 'upload'
 		end
 	end
+
+<<<<<<< HEAD
+def showall
+=======
 	def showall
+>>>>>>> abc234ce8185bb40ccd858adb46557f14e23688b
 		@paintings=Painting.where("user_id=#{params[:id]}")
 	end
 	def delete
 		p=Painting.find(params[:pid])
 		p.remove_image
 		if p.destroy
-			redirect_to :action => 'showall'
+			redirect_to :action =>'showall'
+		else
 		end
 	end
 end
