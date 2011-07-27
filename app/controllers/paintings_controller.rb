@@ -6,12 +6,13 @@ include Magick
 	def upload
         @painting = Painting.new
 	end
-    def download
-        tmp =Painting.find(params[:id])
-        send_file "#{Rails.root}/public/#{tmp.image.to_s}"
-        #redirect_to :action => 'showall'
-    end	
-    def edit
+
+	def download
+		tmp =Painting.find(params[:id])
+		send_file "#{Rails.root}/public/#{tmp.image.to_s}"
+		#redirect_to :action =>	'showall'	
+	end
+	def edit
 		@painting = Painting.find(params[:id])
 	end
 	def format

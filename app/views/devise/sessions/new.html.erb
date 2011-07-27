@@ -1,12 +1,15 @@
 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+	<% devise_error_messages!.each do |key, value| %>
+		<div class="flash <%= key %>"><%= key %> <%= value %></div>
+	<% end %>
   <p>
-      <%= f.label :Benutzername %>
+      <%= f.label :Benutzername , :default =>"" %>
       <br />
       <%= f.text_field :username %>
   </p>
 
   <p>
-      <%= f.label :passwort %>
+      <%= f.label :passwort, :value=> ""%>
       <br />
       <%= f.password_field :password %>
   </p>
@@ -17,7 +20,6 @@
       </p>
   <% end -%>
   <%= image_submit_tag "senden_a.jpg", :mouseover => "senden_b.jpg"%>
-  <!-- <p><%= f.submit "Sign in" %></p> -->
 <% end %>
 
 <%= render :partial => "devise/shared/links" %>

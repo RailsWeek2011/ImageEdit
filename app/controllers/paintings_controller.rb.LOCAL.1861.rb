@@ -6,28 +6,18 @@ include Magick
 	def upload
         @painting = Painting.new
 	end
-<<<<<<< HEAD
     def download
         tmp =Painting.find(params[:id])
         send_file "#{Rails.root}/public/#{tmp.image.to_s}"
         #redirect_to :action => 'showall'
     end	
     def edit
-=======
-	def download
-		tmp =Painting.find(params[:id])
-		send_file "#{Rails.root}/public/#{tmp.image.to_s}"
-		#redirect_to :action =>	'showall'	
-	end
-	def edit
->>>>>>> 89cafddcd515e32f63ee38240bf552b60bdd5837
 		@painting = Painting.find(params[:id])
 	end
 	def format
         
 		p=Painting.find(params[:id])
 		p.update_attributes(params[:painting])
-<<<<<<< HEAD
 		p.image = p.image.resize_to_fill(p.width.to_i,p.height.to_i)
         
 		img = Image.read("#{Rails.root}/public/#{p.image.to_s}").first
@@ -107,14 +97,6 @@ include Magick
    
                 #img.write(thumb_path)
         
-=======
-		p.image = p.image.resize_to_limit(p.width.to_i,p.height.to_i)
-		#tmp=  Magick::Image.read(p.image.to_s).first
-		#tmp.write("#{p.format}:#{p.image.to_s}")
-		#p.image=tmp
-		p.remove_image
-		p.save
->>>>>>> 89cafddcd515e32f63ee38240bf552b60bdd5837
 		redirect_to :action => 'showall', :id => current_user
 	end
 	def create
