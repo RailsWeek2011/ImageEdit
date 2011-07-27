@@ -5,8 +5,8 @@ class PaintingsController < ApplicationController
 	end
 	def download
 		tmp =Painting.find(params[:id])
-		send_file tmp.image.to_s, :type=>"application/zip", :x_sendfile=>true
-		
+		send_file "#{Rails.root}/public/#{tmp.image.to_s}"
+		#redirect_to :action =>	'showall'	
 	end
 	def edit
 		@painting = Painting.find(params[:id])
@@ -14,7 +14,7 @@ class PaintingsController < ApplicationController
 	def format
 		p=Painting.find(params[:id])
 		p.update_attributes(params[:painting])
-		p.image = p.image.resize_to_fill(p.width.to_i,p.height.to_i)
+		p.image = p.image.resize_to_limit(p.width.to_i,p.height.to_i)
 		#tmp=  Magick::Image.read(p.image.to_s).first
 		#tmp.write("#{p.format}:#{p.image.to_s}")
 		#p.image=tmp

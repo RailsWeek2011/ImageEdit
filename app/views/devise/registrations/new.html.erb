@@ -1,8 +1,8 @@
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   
-  <% devise_error_messages!.each do |key, value| %>
-  	<%= key %> <%= value %>
-  <% end %>
+	<% devise_error_messages!.each do |key, value| %>
+		<div class="flash <%= key %>"><%= key %> <%= value %></div>
+	<% end %>
 
   <p><%= f.label :Benutzername %><br />
   <%= f.text_field :username %></p>
