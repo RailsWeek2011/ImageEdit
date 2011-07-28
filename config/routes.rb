@@ -5,7 +5,7 @@ ImageEdit::Application.routes.draw do
   get "paintings/download/:id" => "paintings#download"
   get "paintings/showall/:id" => "paintings#showall"
   get "paintings/edit/:id" => "paintings#edit"
-  get "users/paintings" => "users#paintings"
+  get "users/paints" => "users#paints"
   put "paintings/upload/:id" => "paintings#create"
   get "paintings/upload/:id" => "paintings#upload"
   get "home/index"

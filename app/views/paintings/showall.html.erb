@@ -1,7 +1,7 @@
 <div>
   <% @paintings.each do |painting| %>
 	<div>
-		<%= image_tag painting.image_url(:thumb) if painting.image? %> <br />
+		<%= image_tag painting.image_url(:thumb) %> <br />
 		<%= painting.name %><br />
         <%= link_to "Download", "../download/#{painting.id}" %> | 
         <%= link_to "Edit", "../edit/#{painting.id}" %> |

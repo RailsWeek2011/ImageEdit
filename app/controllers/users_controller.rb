@@ -14,7 +14,7 @@ class UsersController < ApplicationController
   		redirect_to :action => 'edit'
 	end
   end
-  def paintings
+  def paints
 	@users=User.where(:admin => false)
   end
   def edit

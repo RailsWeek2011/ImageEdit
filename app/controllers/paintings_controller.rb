@@ -9,20 +9,24 @@ include Magick
 
 	def download
 		tmp =Painting.find(params[:id])
-		send_file "#{Rails.root}/public/#{tmp.image.to_s}"
-		#redirect_to :action =>	'showall'	
+		send_file "#{Rails.root}/public/uploads/painting/image/#{tmp.id}/#{tmp.filename.to_s.split('.').first}#{'.'}#{tmp.format}"
 	end
 	def edit
 		@painting = Painting.find(params[:id])
+		img = Image.read("#{Rails.root}/public/uploads/painting/image/#{@painting.id}/#{@painting.filename.to_s.split('.').first}#{'.'}#{@painting.format}").first
+		@painting.width=img.rows
+		@painting.height=img.columns
+		@painting.format=@painting.filename.to_s.split('.').last
+		@painting.save
+		
 	end
 	def format
-        
 		p=Painting.find(params[:id])
+		@oldf=p.format			
 		p.update_attributes(params[:painting])
-		p.image = p.image.resize_to_fill(p.width.to_i,p.height.to_i)
-        
-		img = Image.read("#{Rails.root}/public/#{p.image.to_s}").first
-        thumb_file =  "thumb_#{p.image.to_s.split("/").last}"
+		img = Image.read("#{Rails.root}/public/uploads/painting/image/#{p.id}/#{p.filename.to_s.split('.').first}#{'.'}#{@oldf}").first
+		img = img.resize_to_fit(p.width.to_i,p.height.to_i)
+		thumb_file =  "thumb_#{p.image.to_s.split("/").last}"
         slash = "/"
         thumb_path = File::expand_path(File::dirname("#{Rails.root}/public/#{p.image.to_s}"))
         thumb = Image.read("#{thumb_path}#{slash}#{thumb_file}")
@@ -30,18 +34,12 @@ include Magick
         if p.effekt === "none"
         puts "lol" 
         end
-
         if p.effekt === 'vignette'
-            #thumb = thumb.vignette
             img = img.vignette
-            
-        
-        end
-       
+        end      
         if p.effekt === 'edge'
             img = img.edge(8)
         end
-
         if p.effekt === 'polaroid'
             cols, rows = img.columns, img.rows
             img[:caption] = p.name
@@ -67,42 +65,25 @@ include Magick
         end
         if p.effekt === 'wave'
             img = img.wave(10,200)
-        end
-        
-        if p.format === 'JPG'
-        img.write("#{Rails.root}/public/#{p.image.to_s.split('.').first}#{'.jpg'}")
-        File::delete("#{Rails.root}/public/#{p.image.to_s}")
-        tmp = p.image.to_s.split('.').first
-        tmp = tmp.split('/').last
-        tmp = tmp#{'.gif'}
-        write_attribute(:image => tmp.to_s)
-        end
-        if p.format === 'PNG'
-        img.write("#{Rails.root}/public/#{p.image.to_s.split('.').first}#{'.png'}")
-        File::delete("#{Rails.root}/public/#{p.image.to_s}")
-        tmp = p.image.to_s.split('.').first
-        tmp = tmp.split('/').last
-        tmp = tmp#{'.gif'}
-        write_attribute(:image => tmp.to_s)
-        end
-        if p.format === 'GIF'
-        img.write("#{Rails.root}/public/#{p.image.to_s.split('.').first}#{'.gif'}")
-        File::delete("#{Rails.root}/public/#{p.image.to_s}")
-        tmp = p.image.to_s.split('.').first
-        tmp = tmp.split('/').last
-        tmp = tmp#{'.gif'}
-        write_attribute(:image => tmp.to_s)
         end     
-		#p.update_attributes(params[:painting])
-#        p.save
-   
-                #img.write(thumb_path)
-        
+        if (p.format.to_s === @oldf.to_s)
+        else
+			img.write("#{Rails.root}/public/uploads/painting/image/#{p.id}/#{p.filename.to_s.split('.').first}#{'.'}#{p.format}")
+			p.image.convert("#{p.format}") 
+			p.image= ImageUploader.new "#{Rails.root}/public/uploads/painting/image/#{p.id}/#{p.filename.to_s.split('.').first}#{'.'}#{p.format}"
+			p.image.recreate_versions!
+			p.filename = "#{p.filename.to_s.split('.').first}#{'.'}#{p.format}"
+			File::delete("#{Rails.root}/public/uploads/painting/image/#{p.id}/#{p.filename.to_s.split('.').first}#{'.'}#{@oldf}" )		
+        end
+		p.save
 		redirect_to :action => 'showall', :id => current_user
 	end
 	def create
 		@painting=Painting.new params[:painting]
         @painting.user = current_user
+        @painting.filename=@painting.image.filename
+        @painting.format=@painting.filename.to_s.split(".").last
+			 
 		if @painting.save 
 			redirect_to :action => 'showall'
 		else
@@ -114,7 +95,12 @@ include Magick
 	end
 	def delete
 		p=Painting.find(params[:pid])
+		require 'fileutils'
+  					File::delete("#{Rails.root}/public/uploads/painting/image/#{p.id}/#{p.filename.to_s.split('.').first}#{'.'}#{p.format}" )
+  		FileUtils.rm_rf "uploads/painting/image/#{p.id}/"
+		
 		p.remove_image
+		
 		if p.destroy
 			redirect_to :action => 'showall'
 		end

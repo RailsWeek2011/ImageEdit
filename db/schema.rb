@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110727165011) do
+ActiveRecord::Schema.define(:version => 20110728203537) do
 
   create_table "paintings", :force => true do |t|
     t.string   "name"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(:version => 20110727165011) do
     t.integer  "user_id"
     t.string   "format"
     t.string   "effekt"
+    t.string   "filename"
   end
 
   create_table "users", :force => true do |t|
