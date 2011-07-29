@@ -67,6 +67,8 @@ include Magick
             img = img.wave(10,200)
         end     
         if (p.format.to_s === @oldf.to_s)
+			img.write("#{Rails.root}/public/uploads/painting/image/#{p.id}/#{p.filename.to_s.split('.').first}#{'.'}#{p.format}")
+			p.image.recreate_versions!
         else
 			img.write("#{Rails.root}/public/uploads/painting/image/#{p.id}/#{p.filename.to_s.split('.').first}#{'.'}#{p.format}")
 			p.image.convert("#{p.format}") 
@@ -75,7 +77,7 @@ include Magick
 			p.filename = "#{p.filename.to_s.split('.').first}#{'.'}#{p.format}"
 			File::delete("#{Rails.root}/public/uploads/painting/image/#{p.id}/#{p.filename.to_s.split('.').first}#{'.'}#{@oldf}" )		
         end
-		p.save
+        p.save
 		redirect_to :action => 'showall', :id => current_user
 	end
 	def create

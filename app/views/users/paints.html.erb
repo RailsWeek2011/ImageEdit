@@ -1,5 +1,2 @@
-<%= 
-users = User.username.all
-users.each do |user| %>
-	<p> <%= link_to user.username, "../paintings/showall/#{user.id}" %> </p>
-<% end %>
+
+<% @onlyusers.each do |user| %><p><%= link_to user.username, "../paintings/showall/#{user.id}"  %></p><% end %>

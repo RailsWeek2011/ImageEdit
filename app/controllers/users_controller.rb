@@ -7,19 +7,31 @@ class UsersController < ApplicationController
   end
   def update
   	@user=User.find(params[:id])
-  	if @user.update_attributes(params[:user])
-  		redirect_to :action => 'all'
+  	if @user.update_attributes(params[:usertmp])
+		if params[:admin]
+			@user.make_admin
+  		else
+			@user.make_user
+  		end
   		@user.save
+  		p=User.find(params[:aid])
+  		if(p.admin)
+			redirect_to :action => 'all'
+  		else
+			redirect_to :action=> 'edit'
+  		end
+
   	else
   		redirect_to :action => 'edit'
 	end
   end
   def paints
-	@users=User.where(:admin => false)
+	@onlyusers=User.where(:admin => false)
   end
   def edit
-  	@user=User.find(params[:id])
-  
+	 @usertmp=User.find(params[:id])
+	 @admin=User.find(params[:aid])
+  	
   end
   def destroy
     @user = User.find(params[:id])

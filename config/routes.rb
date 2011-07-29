@@ -10,8 +10,8 @@ ImageEdit::Application.routes.draw do
   get "paintings/upload/:id" => "paintings#upload"
   get "home/index"
   put "users/update/:id" => "users#update"
-  post"users/edit/:id" => "users#update"
-  get "users/edit/:id" => "users#edit"
+  post"users/edit/:id/:aid" => "users#update"
+  get "users/edit/:id/:aid" => "users#edit"
   get "users/all" => "users#all"
   get "users/destroy/:id" => "users#destroy"
   devise_for :users, :user
